@@ -1,4 +1,4 @@
-import { cardsData } from "./cards.js?v=donation-free-2";
+import { cardsData } from "./cards.js?v=donation-free-3";
 
 const METRICS = ["health", "money", "social", "hair"];
 const STARTING_VALUE = 50;
