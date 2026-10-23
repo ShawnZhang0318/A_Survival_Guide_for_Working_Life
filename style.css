@@ -347,6 +347,8 @@ kbd { min-width: 16px; padding: 2px 4px; border: 1px solid rgba(255,255,255,.12)
   transition: border-color .15s, background .15s, transform .15s;
 }
 .amount-button:hover { transform: translateY(-1px); border-color: rgba(241,191,112,.32); }
+.amount-button:disabled { cursor: not-allowed; opacity: .48; }
+.amount-button:disabled:hover { transform: none; border-color: rgba(255,255,255,.09); }
 .amount-button.is-selected { border-color: rgba(241,191,112,.55); background: rgba(241,191,112,.12); }
 .amount-button strong { color: #f0d6a6; font: 700 10px var(--body); white-space: nowrap; }
 .amount-button small { overflow: hidden; max-width: 100%; color: #969a99; font: 400 7px var(--display); white-space: nowrap; text-overflow: ellipsis; }

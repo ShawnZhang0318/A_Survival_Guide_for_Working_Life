@@ -1,4 +1,4 @@
-import { cardsData } from "./cards.js?v=donation-qr-2";
+import { cardsData } from "./cards.js?v=donation-flow-3";
 
 const METRICS = ["health", "money", "social", "hair"];
 const STARTING_VALUE = 50;
@@ -366,6 +366,7 @@ function updateDonationSelection() {
     const selected = button.dataset.amount === state.donationAmount;
     button.classList.toggle("is-selected", selected);
     button.setAttribute("aria-pressed", String(selected));
+    button.disabled = !state.donationMethod;
   }
   ui.customAmountButton.setAttribute("aria-expanded", String(state.donationAmount === "custom"));
 }
@@ -420,6 +421,11 @@ function selectDonationMethod(method) {
 }
 
 function selectDonationAmount(amount) {
+  if (!state.donationMethod) {
+    setDonationHint("请先选择微信或支付宝，再选择打赏金额。");
+    return;
+  }
+
   state.donationAmount = amount;
   updateDonationSelection();
   if (amount === "custom") {
@@ -442,8 +448,9 @@ function selectDonationAmount(amount) {
 
 function confirmCustomAmount(event) {
   event.preventDefault();
+  if (!ui.customAmountInput.reportValidity()) return;
   const amount = Number(ui.customAmountInput.value);
-  if (!ui.customAmountInput.reportValidity() || !Number.isFinite(amount) || amount < 0.01) return;
+  if (!Number.isFinite(amount) || amount < 0.01) return;
   state.donationAmount = "custom";
   state.customAmount = Math.round(amount * 100) / 100;
   updateDonationSelection();
@@ -591,5 +598,6 @@ ui.paymentDialog.addEventListener("click", (event) => {
 });
 
 state.unplayedPool = shuffledCardIds();
+updateDonationSelection();
 updateMetricsDisplay();
 renderCard();

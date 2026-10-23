@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=donation-qr-2">
-    <script type="module" src="app.js?v=donation-qr-2"></script>
+    <link rel="stylesheet" href="style.css?v=donation-flow-3">
+    <script type="module" src="app.js?v=donation-flow-3"></script>
   </head>
   <body>
     <main class="game-shell" aria-labelledby="game-title">
@@ -140,28 +140,28 @@
             </div>
           </div>
           <div class="payment-methods" role="group" aria-label="选择收款方式">
-            <button class="payment-method wechat-method" id="method-wechat" type="button" aria-pressed="false">
+            <button class="payment-method wechat-method" id="method-wechat" type="button" data-method="wechat" aria-pressed="false">
               <span class="method-icon" aria-hidden="true">微</span>
               <span>微信</span>
               <span class="method-check" aria-hidden="true">✓</span>
             </button>
-            <button class="payment-method alipay-method" id="method-alipay" type="button" aria-pressed="false">
+            <button class="payment-method alipay-method" id="method-alipay" type="button" data-method="alipay" aria-pressed="false">
               <span class="method-icon" aria-hidden="true">支</span>
               <span>支付宝</span>
               <span class="method-check" aria-hidden="true">✓</span>
             </button>
           </div>
           <div class="donation-amounts" role="group" aria-label="选择打赏金额">
-            <button class="amount-button" type="button" data-amount="0.01" aria-pressed="false">
+            <button class="amount-button" type="button" data-amount="0.01" aria-pressed="false" disabled>
               <strong>¥0.01</strong><small>一份也是爱</small>
             </button>
-            <button class="amount-button" type="button" data-amount="1.88" aria-pressed="false">
+            <button class="amount-button" type="button" data-amount="1.88" aria-pressed="false" disabled>
               <strong>¥1.88</strong><small>一点花花～</small>
             </button>
-            <button class="amount-button" type="button" data-amount="10" aria-pressed="false">
+            <button class="amount-button" type="button" data-amount="10" aria-pressed="false" disabled>
               <strong>¥10</strong><small>加个鸡腿！</small>
             </button>
-            <button class="amount-button custom-amount-button" id="amount-custom" type="button" aria-pressed="false" aria-expanded="false">
+            <button class="amount-button custom-amount-button" id="amount-custom" type="button" aria-pressed="false" aria-expanded="false" disabled>
               <strong>任意金额</strong><small>由你决定</small>
             </button>
           </div>
