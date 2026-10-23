@@ -1,182 +1,111 @@
 export const cardsData = [
-  // --- 基础日常卡牌 ---
-  {
-    id: "card_1",
-    text: "老板突然问你：‘今晚有个紧急需求，能加个班吗？’",
-    leftText: "果断拒绝，准时下班",
-    leftEffect: { health: +5, money: -5, social: +5, hair: +2 },
-    rightText: "含泪答应，愿为公司奉献",
-    rightEffect: { health: -15, money: +15, social: -10, hair: -10 }
-  },
-  {
-    id: "card_2",
-    text: "外卖小哥送来了一份热气腾腾的炸鸡汉堡。",
-    leftText: "吃！人生苦短，及时行乐",
-    leftEffect: { health: -10, money: -5, social: +5, hair: 0 },
-    rightText: "忍痛倒掉，吃水煮菜沙拉",
-    rightEffect: { health: +10, money: -10, social: -5, hair: +2 }
-  },
-  {
-    id: "card_3",
-    text: "同事偷偷告诉你，HR 正在暗中调查平时谁摸鱼最严重。",
-    leftText: "瑟瑟发抖，开始疯狂敲键盘假装很忙",
-    leftEffect: { health: -5, money: 0, social: -5, hair: -5 },
-    rightText: "不慌，反正我也准备跑路了",
-    rightEffect: { health: +5, money: 0, social: +10, hair: +5 }
-  },
-  {
-    id: "card_4",
-    text: "公司组织年度体检，你看着长长的体检项目名单陷入沉思。",
-    leftText: "直接放弃体检，省得吓自己",
-    leftEffect: { health: -10, money: +5, social: 0, hair: 0 },
-    rightText: "老老实实去排队，直面惨淡的人生",
-    rightEffect: { health: +10, money: -15, social: 0, hair: -5 }
-  },
-  {
-    id: "card_5",
-    text: "深夜 2 点，你在床上刷短视频刷到停不下来。",
-    leftText: "放下手机，强迫自己闭眼睡觉",
-    leftEffect: { health: +15, money: 0, social: 0, hair: +5 },
-    rightText: "再刷 10 个视频就睡（第100遍）",
-    rightEffect: { health: -15, money: 0, social: -5, hair: -10 }
-  },
-  {
-    id: "card_6",
-    text: "朋友邀请你周末去密室逃脱，但你只想在家里躺平。",
-    leftText: "拒绝社交，享受孤独的周末",
-    leftEffect: { health: +5, money: +5, social: -15, hair: +2 },
-    rightText: "硬着头皮去社交，假装合群",
-    rightEffect: { health: -10, money: -15, social: +15, hair: -5 }
-  },
-  {
-    id: "card_7",
-    text: "隔壁工位的同事在打响膈，声音震天响，严重影响你写代码。",
-    leftText: "戴上降噪耳机，默默忍受",
-    leftEffect: { health: -5, money: 0, social: +5, hair: -2 },
-    rightText: "递过去一瓶水并善意提醒",
-    rightEffect: { health: +5, money: -5, social: -5, hair: 0 }
-  },
-  {
-    id: "card_8",
-    text: "你在电梯里偶遇大老板，电梯里只有你们两个人，气氛凝固了。",
-    leftText: "尴尬地盯着地板，假装没看见",
-    leftEffect: { health: 0, money: 0, social: -10, hair: -2 },
-    rightText: "主动尬聊，夸赞老板今天的发型好看",
-    rightEffect: { health: -5, money: +10, social: +10, hair: -5 }
-  },
-  {
-    id: "card_9",
-    text: "房东突然发消息通知你：下个月房租要涨 20%。",
-    leftText: "忍气吞声续租，懒得搬家",
-    leftEffect: { health: -5, money: -20, social: 0, hair: -5 },
-    rightText: "怒而搬家，找更便宜的破地下室",
-    rightEffect: { health: -15, money: +10, social: -5, hair: 0 }
-  },
+  // --- 加班与工作类 (1 - 20) ---
+  { id: "c1", text: "老板突然问你：‘今晚有个紧急需求，能加个班吗？’", leftText: "果断拒绝，准时下班", leftEffect: { health: +5, money: -5, social: +5, hair: +2 }, rightText: "含泪答应，愿为公司奉献", rightEffect: { health: -15, money: +15, social: -10, hair: -10 } },
+  { id: "c2", text: "项目上线前夕，核心代码突然爆出 50 个 Bug。", leftText: "不管了，注释掉报错直接上线", leftEffect: { health: -5, money: +10, social: -5, hair: -5 }, rightText: "通宵逐行排查修复", rightEffect: { health: -25, money: +5, social: -10, hair: -20 } },
+  { id: "c3", text: "周一早会，老板在台上激情画饼，问大家有没有信心？", leftText: "面无表情，低头发呆", leftEffect: { health: 0, money: 0, social: -5, hair: 0 }, rightText: "带头疯狂鼓掌，大喊信心百倍", rightEffect: { health: -5, money: +5, social: +10, hair: -5 } },
+  { id: "c4", text: "行政通知：本周五晚上部门团建，去农家乐唱 K 爬山。", leftText: "找借口说家里猫生孩子不去了", leftEffect: { health: +5, money: +5, social: -10, hair: +2 }, rightText: "积极参与，准备在领导面前露一手", rightEffect: { health: -10, money: -10, social: +15, hair: -5 } },
+  { id: "c5", text: "你发现同组实习生的工资居然比你还高 500 块。", leftText: "心态崩了，直接找老板理论", leftEffect: { health: -10, money: +10, social: -15, hair: -10 }, rightText: "选择隐忍，默默偷学他的摸鱼技巧", rightEffect: { health: +5, money: 0, social: +5, hair: +2 } },
+  { id: "c6", text: "下午茶时间，同事点了一杯 40 块钱的高级奶茶并问你喝不喝。", leftText: "谢绝好意，喝自带的白开水养生", leftEffect: { health: +5, money: +5, social: -5, hair: +2 }, rightText: "加入拼单，快乐水续命", rightEffect: { health: -10, money: -5, social: +10, hair: -5 } },
+  { id: "c7", text: "电脑主机突然开始发出震耳欲聋的飞机起飞轰鸣声。", leftText: "一巴掌拍在机箱上物理降噪", leftEffect: { health: +2, money: 0, social: -2, hair: 0 }, rightText: "申请报销换新电脑", rightEffect: { health: -5, money: +10, social: -5, hair: -2 } },
+  { id: "c8", text: "客户深夜 11 点发来微信：“在吗？这个小改动马上调整一下。”", leftText: "开启免打扰，装死看不见", leftEffect: { health: +10, money: -10, social: -10, hair: +5 }, rightText: "秒回：“好的老板，马上处理！”", rightEffect: { health: -20, money: +15, social: +5, hair: -15 } },
+  { id: "c9", text: "公司组织无聊的 PPT 汇报培训，必须全员参加。", leftText: "在下面偷偷刷手机看小说", leftEffect: { health: +2, money: 0, social: -5, hair: 0 }, rightText: "认真做笔记并积极提问", rightEffect: { health: -5, money: 0, social: +10, hair: -5 } },
+  { id: "c10", text: "年终奖发下来了，比预期少了一半还美其名曰‘绩效激励’。", leftText: "默默接受，生活还得继续", leftEffect: { health: -10, money: -15, social: 0, hair: -5 }, rightText: "怒发冲冠，在工位上公开吐槽", rightEffect: { health: -5, money: -5, social: -20, hair: -10 } },
+  { id: "c11", text: "隔壁工位的大佬突然递给你一张离职交接表。", leftText: "大惊失色：“大佬别走，谁来带我？”", leftEffect: { health: -5, money: 0, social: +10, hair: -5 }, rightText: "暗自狂喜：“太好了，下一个升职的就是我！”", rightEffect: { health: +5, money: +5, social: -5, hair: +2 } },
+  { id: "c12", text: "公司空调常年开到 16 度，你冻得瑟瑟发抖。", leftText: "裹紧厚外套，继续敲代码", leftEffect: { health: -10, money: 0, social: 0, hair: -5 }, rightText: "去前台找行政大闹要求调高温度", rightEffect: { health: +5, money: 0, social: +5, hair: 0 } },
+  { id: "c13", text: "开会时领导讲了一个极其冷血且无趣的笑话。", leftText: "面无表情，当场石化", leftEffect: { health: 0, money: 0, social: -10, hair: 0 }, rightText: "第一个带头狂笑并疯狂拍马屁", rightEffect: { health: -5, money: +10, social: +15, hair: -5 } },
+  { id: "c14", text: "公司网管封禁了所有的游戏网站和视频软件。", leftText: "用手机流量热点继续摸鱼", leftEffect: { health: -5, money: -10, social: 0, hair: -5 }, rightText: "老老实实写代码，顺从命运", rightEffect: { health: +5, money: +5, social: 0, hair: +2 } },
+  { id: "c15", text: "保洁阿姨不小心把你的保温杯当垃圾扔了。", leftText: "算了，一个杯子不值几个钱", leftEffect: { health: 0, money: -5, social: 0, hair: 0 }, rightText: "去找行政讨要说法并要求赔偿", rightEffect: { health: -5, money: +5, social: -5, hair: -2 } },
+  { id: "c16", text: "你发现自己的工位正对着消防栓和监控摄像头死角。", leftText: "太棒了，这简直是绝佳的摸鱼圣地", leftEffect: { health: +5, money: 0, social: -5, hair: +2 }, rightText: "感觉毫无隐私，浑身不自在", rightEffect: { health: -5, money: 0, social: 0, hair: -5 } },
+  { id: "c17", text: "主管让你周六无偿回公司值班半天。", leftText: "谎称自己发高烧已经住院", leftEffect: { health: +5, money: 0, social: -10, hair: +2 }, rightText: "乖乖回公司，一个人清静正好吃零食", rightEffect: { health: -10, money: +5, social: 0, hair: -5 } },
+  { id: "c18", text: "公司打印机又卡纸了，而且前面排了五个人。", leftText: "烦躁走开，不打印了", leftEffect: { health: +2, money: 0, social: 0, hair: 0 }, rightText: "撸起袖子自己动手修理打印机", rightEffect: { health: -5, money: 0, social: +10, hair: -5 } },
+  { id: "c19", text: "HR 找你谈话，暗示最近部门要优化 15% 的人员。", leftText: "吓得瑟瑟发抖，开始疯狂拍马屁", leftEffect: { health: -15, money: 0, social: +10, hair: -15 }, rightText: "淡定掏出简历，随时准备跳槽", rightEffect: { health: +5, money: +5, social: -5, hair: +2 } },
+  { id: "c20", text: "你的工位上堆满了成山的文档和废弃外卖盒。", leftText: "任由其堆积，杂乱中自有美感", leftEffect: { health: -10, money: 0, social: -5, hair: -5 }, rightText: "花半小时彻底大扫除，焕然一新", rightEffect: { health: +10, money: 0, social: +5, hair: +5 } },
 
-  // --- 剧情链 A：加密货币梭哈局 ---
-  {
-    id: "crypto_start",
-    text: "群里有人说买某种新出的‘狗狗币’能暴富，要冲吗？",
-    leftText: "理智拒绝，远离高风险",
-    leftEffect: { health: +5, money: 0, social: 0, hair: +2 },
-    rightText: "梭哈！把这个月的工资全压上",
-    rightEffect: { health: -10, money: -20, social: +5, hair: -10 },
-    nextCardRight: "crypto_result"
-  },
-  {
-    id: "crypto_result",
-    text: "你买的币暴雷了！庄家连夜跑路，你的账户缩水 99%...",
-    leftText: "心态崩了，坐在天台怀疑人生",
-    leftEffect: { health: -20, money: -30, social: -10, hair: -15 },
-    rightText: "当做交学费，继续默默搬砖",
-    rightEffect: { health: -5, money: -10, social: 0, hair: -5 }
-  },
+  // --- 摸鱼、职场政治与生活日常 (21 - 50) ---
+  { id: "c21", text: "外卖小哥送来了一份热气腾腾的炸鸡汉堡。", leftText: "吃！人生苦短，及时行乐", leftEffect: { health: -10, money: -5, social: +5, hair: 0 }, rightText: "忍痛倒掉，吃水煮菜沙拉", rightEffect: { health: +10, money: -10, social: -5, hair: +2 } },
+  { id: "c22", text: "同事偷偷告诉你，HR 正在暗中调查平时谁摸鱼最严重。", leftText: "瑟瑟发抖，开始疯狂敲键盘假装很忙", leftEffect: { health: -5, money: 0, social: -5, hair: -5 }, rightText: "不慌，反正我也准备跑路了", rightEffect: { health: +5, money: 0, social: +10, hair: +5 } },
+  { id: "c23", text: "公司组织年度体检，你看着长长的体检项目名单陷入沉思。", leftText: "直接放弃体检，省得吓自己", leftEffect: { health: -10, money: +5, social: 0, hair: 0 }, rightText: "老老实实去排队，直面惨淡的人生", rightEffect: { health: +10, money: -15, social: 0, hair: -5 } },
+  { id: "c24", text: "深夜 2 点，你在床上刷短视频刷到停不下来。", leftText: "放下手机，强迫自己闭眼睡觉", leftEffect: { health: +15, money: 0, social: 0, hair: +5 }, rightText: "再刷 10 个视频就睡（第 100 遍）", rightEffect: { health: -15, money: 0, social: -5, hair: -10 } },
+  { id: "c25", text: "朋友邀请你周末去密室逃脱，但你只想在家里躺平。", leftText: "拒绝社交，享受孤独的周末", leftEffect: { health: +5, money: +5, social: -15, hair: +2 }, rightText: "硬着头皮去社交，假装合群", rightEffect: { health: -10, money: -15, social: +15, hair: -5 } },
+  { id: "c26", text: "隔壁工位的同事在打响膈，声音震天响，严重影响你写代码。", leftText: "戴上降噪耳机，默默忍受", leftEffect: { health: -5, money: 0, social: +5, hair: -2 }, rightText: "递过去一瓶水并善意提醒", rightEffect: { health: +5, money: -5, social: -5, hair: 0 } },
+  { id: "c27", text: "你在电梯里偶遇大老板，电梯里只有你们两个人，气氛凝固了。", leftText: "尴尬地盯着地板，假装没看见", leftEffect: { health: 0, money: 0, social: -10, hair: -2 }, rightText: "主动尬聊，夸赞老板今天的发型好看", rightEffect: { health: -5, money: +10, social: +10, hair: -5 } },
+  { id: "c28", text: "房东突然发消息通知你：下个月房租要涨 20%。", leftText: "忍气吞声续租，懒得搬家", leftEffect: { health: -5, money: -20, social: 0, hair: -5 }, rightText: "怒而搬家，找更便宜的破地下室", rightEffect: { health: -15, money: +10, social: -5, hair: 0 } },
+  { id: "c29", text: "公司推出健身卡打折活动，年卡只需要 1000 块。", leftText: "办卡！这次一定坚持去", leftEffect: { health: +10, money: -15, social: +5, hair: +5 }, rightText: "不办，洗澡卡而已，别想骗我钱", rightEffect: { health: -5, money: +10, social: 0, hair: 0 } },
+  { id: "c30", text: "双十一购物节到了，零点购物车打折促销大爆发。", leftText: "清空购物车，疯狂消费解压", leftEffect: { health: -5, money: -30, social: +5, hair: 0 }, rightText: "理性消费，一分钱都不花", rightEffect: { health: 0, money: +20, social: -5, hair: +2 } },
+  { id: "c31", text: "你在洗头时发现下水道口被一大团头发堵住了...", leftText: "购买昂贵的防脱发洗发水和生发液", leftEffect: { health: +5, money: -20, social: 0, hair: +15 }, rightText: "戴上帽子，假装什么都没发生", rightEffect: { health: -5, money: 0, social: -5, hair: -15 } },
+  { id: "c32", text: "周末高中同学聚会，大家都在比谁混得好、买了几套房。", leftText: "租豪车去参加，绝不能输了面子", leftEffect: { health: -10, money: -25, social: +20, hair: -5 }, rightText: "找借口不去，在家打单机游戏", rightEffect: { health: +10, money: +5, social: -15, hair: +5 } },
+  { id: "c33", text: "你在洗手间蹲坑了 40 分钟，腿都麻了，外面传来 HR 的脚步声...", leftText: "假装在打极其重要的客户电话", leftEffect: { health: -5, money: 0, social: +10, hair: 0 }, rightText: "硬着头皮顶着麻木的双腿溜出去", rightEffect: { health: -10, money: 0, social: -10, hair: +2 } },
+  { id: "c34", text: "公司组织团建抽奖，你竟然一不小心抽中了特等奖：iPhone。", leftText: "当场高调炫耀，请全办公室喝奶茶", leftEffect: { health: +5, money: -15, social: +20, hair: 0 }, rightText: "悄悄低调兑现，生怕别人嫉妒", rightEffect: { health: 0, money: +20, social: -10, hair: 0 } },
+  { id: "c35", text: "你发现外卖里吃出了一只小强...", leftText: "拍照发朋友圈并找商家索赔十倍", leftEffect: { health: -5, money: +10, social: +5, hair: 0 }, rightText: "默默挑出来，自认倒霉继续吃", rightEffect: { health: -15, money: 0, social: 0, hair: -2 } },
+  { id: "c36", text: "快递柜里塞满了你网购的各种无用小玩意儿。", leftText: "统统拆开，享受拆盲盒的快乐", leftEffect: { health: +5, money: -20, social: 0, hair: 0 }, rightText: "堆在角落吃灰，看都不看一眼", rightEffect: { health: 0, money: 0, social: 0, hair: 0 } },
+  { id: "c37", text: "你在地铁上遇到有人大声外放土味短视频。", leftText: "戴上耳机，默默开启降噪", leftEffect: { health: +2, money: 0, social: 0, hair: 0 }, rightText: "大声外放更大声的佛经超度对方", rightEffect: { health: -5, money: 0, social: -10, hair: -2 } },
+  { id: "c38", text: "公司茶水间的咖啡机彻底坏了，已经断供三天。", leftText: "自费去楼下星巴克买拿铁", leftEffect: { health: +2, money: -15, social: 0, hair: 0 }, rightText: "改喝速溶白开水，靠意念提神", rightEffect: { health: -10, money: +5, social: 0, hair: -5 } },
+  { id: "c39", text: "你看着镜子里的自己，发现黑眼圈已经重得像国宝。", leftText: "早点洗漱上床睡觉", leftEffect: { health: +15, money: 0, social: 0, hair: +5 }, rightText: "敷个昂贵的眼膜继续修仙", rightEffect: { health: +5, money: -10, social: 0, hair: 0 } },
+  { id: "c40", text: "朋友向你借 5000 块钱应急，说下个月就还。", leftText: "爽快转账，哥们信得过", leftEffect: { health: 0, money: -25, social: +15, hair: 0 }, rightText: "假装手头紧，委婉拒绝", rightEffect: { health: 0, money: +5, social: -15, hair: 0 } },
 
-  // --- 剧情链 B：办公室恋爱局 ---
-  {
-    id: "love_start",
-    text: "隔壁部门的漂亮小姐姐/小哥哥主动加你微信，问你周末有没有空。",
-    leftText: "婉拒，单身狗一个人打游戏不香吗",
-    leftEffect: { health: +5, money: +5, social: -10, hair: +2 },
-    rightText: "欣然答应，精心挑选约会战袍",
-    rightEffect: { health: +10, money: -20, social: +20, hair: -5 },
-    nextCardRight: "love_second"
-  },
-  {
-    id: "love_second",
-    text: "恋爱第三个月，对方暗示你该准备见家长或者谈婚论嫁了...",
-    leftText: "太快了！选择冷处理并逃避",
-    leftEffect: { health: -10, money: 0, social: -20, hair: -10 },
-    rightText: "买钻戒求婚，准备步入婚姻殿堂",
-    rightEffect: { health: -15, money: -40, social: +30, hair: -20 }
-  },
+  // --- AI、玄学与进阶整活梗 (51 - 80) ---
+  { id: "c51", text: "老板在全员大会上宣布：公司全面引入 AI，以后每个人效率要提升 300%！", leftText: "偷偷用 ChatGPT 帮自己写周报摸鱼", leftEffect: { health: +5, money: 0, social: +5, hair: +5 }, rightText: "熬夜学习 Prompt 工程，卷死同事", rightEffect: { health: -15, money: +10, social: -10, hair: -10 } },
+  { id: "c52", text: "你发现 AI 写出来的代码 Bug 比你自己写的还多...", leftText: "假装没看见，直接提交给测试", leftEffect: { health: +5, money: 0, social: -10, hair: +2 }, rightText: "通宵帮 AI 改 Bug，头发掉了一地", rightEffect: { health: -20, money: +5, social: 0, hair: -15 } },
+  { id: "c53", text: "同事在工位上摆了一尊发财树和仙人掌，说能防小人招财。", leftText: "不屑一顾，相信科学", leftEffect: { health: 0, money: 0, social: -5, hair: 0 }, rightText: "跟风买了一尊更大号的“紫水晶洞”", rightEffect: { health: +5, money: -15, social: +10, hair: +2 } },
+  { id: "c54", text: "行政通知：为了提升公司气运，所有人工位方向随机调换！", leftText: "顺从安排，收拾搬家", leftEffect: { health: -5, money: 0, social: +5, hair: -2 }, rightText: "找大师算了一卦，死活不肯搬", rightEffect: { health: +5, money: -5, social: -15, hair: +5 } },
+  { id: "c55", text: "财务退回了你上个月的差旅报销单：“发票抬头少打了一个字，重新开！”", leftText: "自认倒霉，掏腰包补上", leftEffect: { health: -5, money: -15, social: 0, hair: 0 }, rightText: "跑去财务部和财务大姐拉扯两小时", rightEffect: { health: -10, money: +15, social: -10, hair: -5 } },
+  { id: "c56", text: "公司突然宣布下周开始实施‘隔周周六加班制’（大小周）。", leftText: "发起联名信，强烈抗议", leftEffect: { health: +10, money: -10, social: -20, hair: +5 }, rightText: "默许接受，顺便领加班费", rightEffect: { health: -15, money: +20, social: +5, hair: -10 } },
+  { id: "c57", text: "程序员节到了，公司发了一箱苹果和一件程序员格子衫。", leftText: "默默收下格子衫，加入宇宙制服行列", leftEffect: { health: 0, money: +5, social: +5, hair: -2 }, rightText: "嫌弃太丑，转手挂在闲鱼上卖掉", rightEffect: { health: 0, money: +10, social: -5, hair: 0 } },
+  { id: "c58", text: "公司组织羽毛球比赛，主管邀请你搭档双打。", leftText: "谎称自己有关节炎婉拒", leftEffect: { health: +2, money: 0, social: -5, hair: 0 }, rightText: "欣然应战，在赛场上疯狂扣杀", rightEffect: { health: -10, money: 0, social: +15, hair: -5 } },
+  { id: "c59", text: "你在工位上吃螺蛳粉，浓郁的香味飘满了整个办公室。", leftText: "关上工位小隔板，自顾自享用", leftEffect: { health: +5, money: 0, social: -15, hair: 0 }, rightText: "被全办公室愤怒声讨，赶出大楼", rightEffect: { health: -5, money: 0, social: -25, hair: -5 } },
+  { id: "c60", text: "公司年会抽奖，你居然中了一台平衡车，但你平时根本不运动。", leftText: "转手挂闲鱼换成现金", leftEffect: { health: 0, money: +15, social: 0, hair: 0 }, rightText: "在公司走廊试骑，结果当场摔了个狗吃屎", rightEffect: { health: -15, money: 0, social: +10, hair: -5 } },
 
-  // --- 剧情链 C：副业创业局 ---
-  {
-    id: "side_start",
-    text: "你打算晚上下班后做自媒体自媒体搞副业，需要买几千块的拍摄设备。",
-    leftText: "算了，下班已经够累了，躺平保命",
-    leftEffect: { health: +10, money: 0, social: 0, hair: +5 },
-    rightText: "咬牙掏钱买设备，开干！",
-    rightEffect: { health: -15, money: -25, social: -5, hair: -10 },
-    nextCardRight: "side_result"
-  },
-  {
-    id: "side_result",
-    text: "你的副业视频突然爆火，有广告商找上门投广告！",
-    leftText: "顺势辞职，全职做自媒体博主",
-    leftEffect: { health: +20, money: +40, social: +10, hair: +10 },
-    rightText: "接广告赚外快，同时继续苟在公司",
-    rightEffect: { health: -20, money: +30, social: -10, hair: -15 }
-  },
+  // --- 剧情链卡牌 (81 - 100) ---
+  { id: "crypto_start", text: "群里有人说买某种新出的‘狗狗币’能暴富，要冲吗？", leftText: "理智拒绝，远离高风险", leftEffect: { health: +5, money: 0, social: 0, hair: +2 }, rightText: "梭哈！把这个月的工资全压上", rightEffect: { health: -10, money: -20, social: +5, hair: -10 }, nextCardRight: "crypto_result" },
+  { id: "crypto_result", text: "你买的币暴雷了！庄家连夜跑路，你的账户缩水 99%...", leftText: "心态崩了，坐在天台怀疑人生", leftEffect: { health: -20, money: -30, social: -10, hair: -15 }, rightText: "当做交学费，继续默默搬砖", rightEffect: { health: -5, money: -10, social: 0, hair: -5 } },
+  { id: "love_start", text: "隔壁部门的漂亮小姐姐/小哥哥主动加你微信，问你周末有没有空。", leftText: "婉拒，单身狗一个人打游戏不香吗", leftEffect: { health: +5, money: +5, social: -10, hair: +2 }, rightText: "欣然答应，精心挑选约会战袍", rightEffect: { health: +10, money: -20, social: +20, hair: -5 }, nextCardRight: "love_second" },
+  { id: "love_second", text: "恋爱第三个月，对方暗示你该准备见家长或者谈婚论嫁了...", leftText: "太快了！选择冷处理并逃避", leftEffect: { health: -10, money: 0, social: -20, hair: -10 }, rightText: "买钻戒求婚，准备步入婚姻殿堂", rightEffect: { health: -15, money: -40, social: +30, hair: -20 } },
+  { id: "side_start", text: "你打算晚点了做自媒体副业，需要买几千块的拍摄设备。", leftText: "算了，下班已经够累了，躺平保命", leftEffect: { health: +10, money: 0, social: 0, hair: +5 }, rightText: "咬牙掏钱买设备，开干！", rightEffect: { health: -15, money: -25, social: -5, hair: -10 }, nextCardRight: "side_result" },
+  { id: "side_result", text: "你的副业视频突然爆火，有广告商找上门投广告！", leftText: "顺势辞职，全职做自媒体博主", leftEffect: { health: +20, money: +40, social: +10, hair: +10 }, rightText: "接广告赚外快，同时继续苟在公司", rightEffect: { health: -20, money: +30, social: -10, hair: -15 } },
+  { id: "health_chain_1", text: "你发现最近心率偶尔飙到 140，打算买个昂贵的智能手表。", leftText: "省钱不买，不看就等于没病", leftEffect: { health: -10, money: +10, social: 0, hair: 0 }, rightText: "果断下单最新款 Apple Watch", rightEffect: { health: +10, money: -20, social: +5, hair: 0 }, nextCardRight: "health_chain_2" },
+  { id: "health_chain_2", text: "手表突然发出剧烈警报：“检测到您已连续坐立 6 小时且心率异常！”", leftText: "按掉警告，继续把这行代码敲完", leftEffect: { health: -25, money: 0, social: 0, hair: -10 }, rightText: "立刻站起来，在办公室表演八段锦", rightEffect: { health: +15, money: 0, social: -15, hair: +5 } },
+  { id: "lottery_start", text: "下班路过彩票店，看到双色球奖金池突破 10 亿元。", leftText: "路过无视，智商税不交", leftEffect: { health: 0, money: +2, social: 0, hair: 0 }, rightText: "机选 5 注，梦想还是要有的", rightEffect: { health: 0, money: -10, social: 0, hair: 0 }, nextCardRight: "lottery_result" },
+  { id: "lottery_result", text: "开奖结果出来了，你居然中了三等奖 3000 元！", leftText: "请全办公室吃炸鸡大餐", leftEffect: { health: -5, money: -15, social: +20, hair: 0 }, rightText: "悄悄存进银行，谁也不告诉", rightEffect: { health: 0, money: +25, social: -5, hair: 0 } },
 
-  // --- 更多日常进阶卡牌 ---
-  {
-    id: "card_10",
-    text: "公司推出健身卡打折活动，年卡只需要 1000 块。",
-    leftText: "办卡！这次一定坚持去",
-    leftEffect: { health: +10, money: -15, social: +5, hair: +5 },
-    rightText: "不办，洗澡卡而已，别想骗我钱",
-    rightEffect: { health: -5, money: +10, social: 0, hair: 0 }
-  },
-  {
-    id: "card_11",
-    text: "领导让你在全公司大例会上做季度总结 PPT 汇报。",
-    leftText: "精心准备 PPT，展现专业素养",
-    leftEffect: { health: -10, money: +10, social: +15, hair: -10 },
-    rightText: "套用网络模板，随便敷衍过去",
-    rightEffect: { health: +5, money: 0, social: -10, hair: +5 }
-  },
-  {
-    id: "card_12",
-    text: "双十一购物节到了，零点购物车打折促销大爆发。",
-    leftText: "清空购物车，疯狂消费解压",
-    leftEffect: { health: -5, money: -30, social: +5, hair: 0 },
-    rightText: "理性消费，一分钱都不花",
-    rightEffect: { health: 0, money: +20, social: -5, hair: +2 }
-  },
-  {
-    id: "card_13",
-    text: "你在洗头时发现下水道口被一大团头发堵住了...",
-    leftText: "购买昂贵的防脱发洗发水和生发液",
-    leftEffect: { health: +5, money: -20, social: 0, hair: +15 },
-    rightText: "戴上帽子，假装什么都没发生",
-    rightEffect: { health: -5, money: 0, social: -5, hair: -15 }
-  },
-  {
-    id: "card_14",
-    text: "公司空降了一个完全不懂业务的咸鱼主管，天天胡乱派活。",
-    leftText: "忍辱负重，替主管收拾烂摊子",
-    leftEffect: { health: -15, money: +10, social: +5, hair: -10 },
-    rightText: "硬刚回击，直接在群里发邮件吐槽",
-    rightEffect: { health: +10, money: -10, social: -20, hair: +5 }
-  },
-  {
-    id: "card_15",
-    text: "周末高中同学聚会，大家都在比谁混得好、买了几套房。",
-    leftText: "租豪车去参加，绝不能输了面子",
-    leftEffect: { health: -10, money: -25, social: +20, hair: -5 },
-    rightText: "找借口不去，在家打单机游戏",
-    rightEffect: { health: +10, money: +5, social: -15, hair: +5 }
-  }
+  { id: "c81", text: "公司电脑突然蓝屏，你刚刚写了两个小时还没保存的代码瞬间蒸发。", leftText: "当场心态崩溃，一拳砸在桌子上", leftEffect: { health: -20, money: 0, social: -5, hair: -15 }, rightText: "深呼吸三次，含泪重新开写", rightEffect: { health: -10, money: 0, social: 0, hair: -5 } },
+  { id: "c82", text: "外卖送来时撒了一半在袋子里，汤水淋漓。", leftText: "给骑手差评并拍照申请理赔", leftEffect: { health: -5, money: +5, social: -5, hair: 0 }, rightText: "凑合着吃，不跟生活一般见识", rightEffect: { health: -10, money: 0, social: 0, hair: 0 } },
+  { id: "c83", text: "你在公司年会上抽到了‘与老板共进晚餐’的机会。", leftText: "连夜买站票逃跑", leftEffect: { health: +5, money: -10, social: -15, hair: +2 }, rightText: "硬着头皮去吃，疯狂拍马屁敬酒", rightEffect: { health: -15, money: 0, social: +20, hair: -10 } },
+  { id: "c84", text: "同事离职聚餐，大家起哄让你当场即兴高歌一曲。", leftText: "坚决拒绝，打死不开口", leftEffect: { health: 0, money: 0, social: -10, hair: 0 }, rightText: "拿起麦克风深情演唱一首《死了都要爱》", rightEffect: { health: -5, money: 0, social: +15, hair: -5 } },
+  { id: "c85", text: "你发现自己的微信步数长期个位数，一天走不到 100 步。", leftText: "毫无波澜，主打一个省电节能", leftEffect: { health: -10, money: 0, social: 0, hair: 0 }, rightText: "决定每天晚上绕着小区暴走 5 公里", rightEffect: { health: +15, money: 0, social: 0, hair: +5 } },
+
+  { id: "c61", text: "公司的打印机今天彻底瘫痪，吐出了一地废纸。", leftText: "不管不顾，直接下班", leftEffect: { health: +5, money: 0, social: -5, hair: +2 }, rightText: "客串维修工，成功修好打印机", rightEffect: { health: -10, money: +5, social: +10, hair: -5 } },
+  { id: "c62", text: "主管突然在工作群里发了一个拼多多砍价链接。", leftText: "视而不见，假装没看见", leftEffect: { health: +2, money: 0, social: -10, hair: 0 }, rightText: "秒点帮砍并截图发群里拍马屁", rightEffect: { health: -2, money: 0, social: +10, hair: -2 } },
+  { id: "c63", text: "你发现自己的办公椅滚轮坏了一个，坐上去总是倾斜的。", leftText: "凑合着用，练习核心肌肉群", leftEffect: { health: -10, money: 0, social: 0, hair: 0 }, rightText: "找行政申请换一把人体工学椅", rightEffect: { health: +5, money: 0, social: +2, hair: 0 } },
+  { id: "c64", text: "周五下午 5 点半，正准备收拾东西溜走，主管突然召集临时会议。", leftText: "背上书包直接冲出公司大门", leftEffect: { health: +10, money: -5, social: -15, hair: +5 }, rightText: "无奈折返，乖乖进会议室开会", rightEffect: { health: -15, money: +5, social: +5, hair: -10 } },
+  { id: "c65", text: "公司楼下的便利店便当又双叒涨价了 2 块钱。", leftText: "改买最便宜的榨菜馒头充饥", leftEffect: { health: -10, money: +5, social: -2, hair: -2 }, rightText: "咬牙继续买，犒劳一下自己", rightEffect: { health: +2, money: -5, social: 0, hair: 0 } },
+  { id: "c66", text: "你在代码注释里偷偷骂了一句脏话，不小心合入了主干分支。", leftText: "祈祷明天代码审查时没人发现", leftEffect: { health: -10, money: 0, social: 0, hair: -5 }, rightText: "连夜热修复并祈求上天保佑", rightEffect: { health: -15, money: 0, social: 0, hair: -10 } },
+  { id: "c67", text: "隔壁桌的同事天天带味道冲鼻的榴莲干来办公室吃。", leftText: "忍气吞声，戴上口罩防毒", leftEffect: { health: -5, money: 0, social: 0, hair: -2 }, rightText: "匿名发邮件向行政投诉", rightEffect: { health: 0, money: 0, social: -10, hair: 0 } },
+  { id: "c68", text: "公司组织无聊的消防疏散演练，大楼警报拉响。", leftText: "懒得下楼，继续趴在工位上睡觉", leftEffect: { health: -5, money: 0, social: -5, hair: 0 }, rightText: "积极参与，跟着大部队排队下楼", rightEffect: { health: +5, money: 0, social: +5, hair: 0 } },
+  { id: "c69", text: "你的手机备忘录里记满了各种奇葩的离职借口。", leftText: "删掉重写，精益求精", leftEffect: { health: 0, money: 0, social: 0, hair: 0 }, rightText: "不小心手滑发到了公司大群里", rightEffect: { health: -20, money: 0, social: -30, hair: -10 } },
+  { id: "c70", text: "深夜加班回家，路边遇到一只流浪猫在冲你叫。", leftText: "摸摸它并喂一根火腿肠", leftEffect: { health: +5, money: -5, social: +5, hair: +2 }, rightText: "快步走开，自身难保", rightEffect: { health: -2, money: 0, social: -2, hair: 0 } },
+  { id: "c71", text: "主管让你把一份全英文的技术文档翻译成中文。", leftText: "丢给翻译软件机翻应付过去", leftEffect: { health: +2, money: 0, social: -5, hair: -2 }, rightText: "逐字逐句认真校对翻译", rightEffect: { health: -10, money: +5, social: +10, hair: -5 } },
+  { id: "c72", text: "你发现自己的发际线好像比上个月又往后移了一毫米。", leftText: "买一顶时尚的棒球帽掩盖", leftEffect: { health: 0, money: -10, social: +5, hair: +5 }, rightText: "直面现实，接受命运的安排", rightEffect: { health: -5, money: 0, social: 0, hair: -10 } },
+  { id: "c73", text: "公司组织集体接种流感疫苗，就在茶水间门口。", leftText: "借口晕针，撒腿就跑", leftEffect: { health: -10, money: 0, social: 0, hair: 0 }, rightText: "挽起袖子勇敢接种", rightEffect: { health: +10, money: 0, social: +2, hair: 0 } },
+  { id: "c74", text: "你在二手平台上挂闲鱼的旧手机终于卖出去了。", leftText: "顺丰包邮，痛快发货", leftEffect: { health: 0, money: +20, social: +2, hair: 0 }, rightText: "遇到极品买家各种砍价扯皮", rightEffect: { health: -10, money: +10, social: -10, hair: -5 } },
+  { id: "c75", text: "天气预报说下午有暴雨，但你出门时大晴天没带伞。", leftText: "赌一把，淋雨狂奔回公司", leftEffect: { health: -15, money: 0, social: 0, hair: -5 }, rightText: "在便利店花 40 块钱买把伞", rightEffect: { health: +2, money: -10, social: 0, hair: 0 } },
+  { id: "c76", text: "公司前台的小姐姐今天换了一个非常好看的新发型。", leftText: "礼貌微笑，点头打招呼", leftEffect: { health: 0, money: 0, social: +5, hair: 0 }, rightText: "大方夸赞对方发型很适合她", rightEffect: { health: 0, money: 0, social: +15, hair: 0 } },
+  { id: "c77", text: "你看着自己银行卡里可怜的个位数余额陷入了沉思。", leftText: "疯狂刷信用卡提前消费", leftEffect: { health: -5, money: +15, social: 0, hair: -5 }, rightText: "开启吃土模式，清心寡欲", rightEffect: { health: -10, money: -5, social: -5, hair: 0 } },
+  { id: "c78", text: "你在 GitHub 上提交了一个开源 Pull Request 被核心作者采纳了。", leftText: "发朋友圈低调炫耀一下", leftEffect: { health: 0, money: 0, social: +10, hair: -2 }, rightText: "深藏功与名，继续回去敲代码", rightEffect: { health: -5, money: 0, social: +5, hair: -2 } },
+  { id: "c79", text: "公司隔壁装修施工，电钻声震耳欲聋，震得脑仁疼。", leftText: "戴上耳塞，强行静心工作", leftEffect: { health: -10, money: -5, social: 0, hair: -5 }, rightText: "带上笔记本去附近的星巴克办公", rightEffect: { health: +5, money: -20, social: 0, hair: +2 } },
+  { id: "c80", text: "你发现自己写的一个老旧项目居然还在线上稳定运行，没出过 Bug。", leftText: "瑟瑟发抖，祈祷千万别出事", leftEffect: { health: -5, money: 0, social: 0, hair: -5 }, rightText: "自豪感油然而生，代码如神明", rightEffect: { health: +5, money: 0, social: +5, hair: 0 } },
+  { id: "c86", text: "公司组织了一场全员英文演讲比赛，要求人人过关。", leftText: "用翻译软件拼凑一篇上去念", leftEffect: { health: -5, money: 0, social: -5, hair: -5 }, rightText: "通宵背稿，在台上自信演讲", rightEffect: { health: -15, money: +10, social: +20, hair: -10 } },
+  { id: "c87", text: "你网购的加湿器刚收到，打开电源就冒出一阵黑烟。", leftText: "申请退货退款并给差评", leftEffect: { health: 0, money: +5, social: 0, hair: 0 }, rightText: "嫌麻烦懒得退，直接扔进垃圾桶", rightEffect: { health: 0, money: -15, social: 0, hair: 0 } },
+  { id: "c88", text: "深夜加班时，保洁大叔推着车进来准备打扫卫生。", leftText: "主动让路并帮大叔扶住门", leftEffect: { health: -5, money: 0, social: +10, hair: 0 }, rightText: "戴着耳机当没看见，继续敲代码", rightEffect: { health: -10, money: 0, social: -5, hair: -2 } },
+  { id: "c89", text: "你在社交平台上刷到了一则‘35岁程序员失业转行卖烤红薯’的新闻。", leftText: "关掉手机，感到深深的焦虑", leftEffect: { health: -15, money: 0, social: -5, hair: -10 }, rightText: "安慰自己烤红薯也许发财更快", rightEffect: { health: +5, money: 0, social: +5, hair: +2 } },
+  { id: "c90", text: "公司楼下新开了一家螺蛳粉店，开业大酬宾买一送一。", leftText: "果断去尝鲜，真香定律虽迟但到", leftEffect: { health: -5, money: +5, social: +5, hair: 0 }, rightText: "坚决不吃，避之不及", rightEffect: { health: +5, money: 0, social: 0, hair: +2 } },
+  { id: "c91", text: "主管在周会上表扬了你上周输出的方案。", leftText: "谦虚低调，说这是团队的功劳", leftEffect: { health: 0, money: 0, social: +15, hair: 0 }, rightText: "内心狂喜，觉得自己马上要升职加薪了", rightEffect: { health: -5, money: +10, social: +5, hair: -5 } },
+  { id: "c92", text: "你发现自己的手机内存空间爆满，天天提示存储空间不足。", leftText: "清理掉存了几万张的表情包和截图", leftEffect: { health: 0, money: 0, social: 0, hair: 0 }, rightText: "花钱升级云端大容量存储空间", rightEffect: { health: 0, money: -15, social: 0, hair: 0 } },
+  { id: "c93", text: "周末在家睡到自然醒，突然接到公司的电话轰炸。", leftText: "直接关机，假装手机不在身边", leftEffect: { health: +15, money: 0, social: -15, hair: +5 }, rightText: "战战兢兢开机接听", rightEffect: { health: -20, money: +5, social: +5, hair: -10 } },
+  { id: "c94", text: "你在地铁安检时，不小心把保温杯忘在安检筐里了。", leftText: "狂奔回去找，幸好还在", leftEffect: { health: -5, money: 0, social: +5, hair: -2 }, rightText: "找不到了，含泪再买个新的", rightEffect: { health: 0, money: -15, social: 0, hair: 0 } },
+  { id: "c95", text: "公司行政部门突然开始统计大家的血型和紧急联系人。", leftText: "老老实实填上真实信息", leftEffect: { health: 0, money: 0, social: 0, hair: 0 }, rightText: "开玩笑说紧急联系人填 110", rightEffect: { health: 0, money: 0, social: +5, hair: -2 } },
+  { id: "c96", text: "你看着镜子里略显疲惫的自己，决定今晚绝对不熬夜。", leftText: "说到做到，10点准时上床", leftEffect: { health: +20, money: 0, social: 0, hair: +10 }, rightText: " flag 倒得飞快，深夜还在刷短视频", rightEffect: { health: -20, money: 0, social: -5, hair: -15 } },
+  { id: "c97", text: "办公室里不知是谁带了一盒好吃的曲奇饼干分享。", leftText: "客气拿一块，美滋滋享用", leftEffect: { health: -2, money: 0, social: +10, hair: 0 }, rightText: "默默拿走半盒，当晚饭吃", rightEffect: { health: -5, money: +5, social: +5, hair: 0 } },
+  { id: "c98", text: "你参与的项目终于顺利通过了终审，圆满结项。", leftText: "长舒一口气，申请调休一天", leftEffect: { health: +15, money: 0, social: +10, hair: +5 }, rightText: "立刻投入到下一个更卷的新项目中", rightEffect: { health: -25, money: +20, social: -5, hair: -15 } },
+  { id: "c99", text: "公司组织了一场‘谁是卧底’的桌游团建活动。", leftText: "全程划水当吃瓜群众", leftEffect: { health: +5, money: 0, social: +5, hair: 0 }, rightText: "悍跳卧底，把全场忽悠得团团转", rightEffect: { health: -5, money: 0, social: +20, hair: -5 } },
+  { id: "c100", text: "你在工位抽屉最深处翻到了一包半年前买的过期零食。", leftText: "毫不犹豫，直接扔进垃圾桶", leftEffect: { health: +2, money: 0, social: 0, hair: 0 }, rightText: "陷入沉思，感慨时光飞逝如电", rightEffect: { health: -5, money: 0, social: 0, hair: -2 } }
 ];
