@@ -1,4 +1,4 @@
-import { cardsData } from "./cards.js?v=donation-flow-3";
+import { cardsData } from "./cards.js?v=auto-refresh-1";
 
 const METRICS = ["health", "money", "social", "hair"];
 const STARTING_VALUE = 50;
@@ -95,7 +95,7 @@ const state = {
 };
 
 const gameQrImage = new Image();
-gameQrImage.src = new URL("./game-link-qr.png", import.meta.url).href;
+gameQrImage.src = new URL("./game-link-qr.png?v=auto-refresh-1", import.meta.url).href;
 gameQrImage.addEventListener("load", () => {
   if (state.ending && ui.dialog.open) drawSummaryCard(state.ending, state.daysSurvived);
 });
