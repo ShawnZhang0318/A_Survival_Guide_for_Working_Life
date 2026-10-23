@@ -295,6 +295,71 @@ kbd { min-width: 16px; padding: 2px 4px; border: 1px solid rgba(255,255,255,.12)
 .ending-copy { margin: 6px 0 16px; color: #adaeb2; font: 400 11px/1.8 var(--display); }
 .summary-wrap { overflow: hidden; border: 1px solid rgba(255,255,255,.11); border-radius: 11px; background: #272a2e; }
 #summary-canvas { display: block; width: 100%; height: auto; }
+.donation-panel {
+  margin-top: 12px;
+  padding: 13px;
+  border: 1px solid rgba(167,225,188,.16);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(167,225,188,.07), rgba(255,255,255,.025));
+}
+.donation-heading { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.donation-mark { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 8px; color: var(--mint); background: rgba(167,225,188,.11); font-size: 14px; }
+.donation-heading h3 { margin: 0; color: #ebe9e2; font: 700 11px var(--display); }
+.donation-heading p { margin: 2px 0 0; color: #8e9294; font: 400 8px var(--display); }
+.payment-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 8px; }
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 37px;
+  padding: 5px 9px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  color: #c9cbc6;
+  background: rgba(255,255,255,.035);
+  font: 600 9px var(--display);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.payment-method:hover { transform: translateY(-1px); background: rgba(255,255,255,.07); }
+.wechat-method.is-selected { border-color: rgba(115,208,145,.5); background: rgba(76,175,111,.12); }
+.alipay-method.is-selected { border-color: rgba(89,164,232,.5); background: rgba(76,146,220,.12); }
+.method-icon { width: 20px; height: 20px; display: grid; flex: none; place-items: center; border-radius: 6px; color: #1a3625; background: #88d39f; font: 800 10px var(--display); }
+.alipay-method .method-icon { color: #174b75; background: #83c5f4; }
+.method-check { margin-left: auto; color: var(--mint); opacity: 0; }
+.is-selected .method-check { opacity: 1; }
+.donation-amounts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.amount-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 49px;
+  gap: 3px;
+  padding: 5px 3px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 8px;
+  color: #d7d7d1;
+  background: rgba(255,255,255,.035);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.amount-button:hover { transform: translateY(-1px); border-color: rgba(241,191,112,.32); }
+.amount-button.is-selected { border-color: rgba(241,191,112,.55); background: rgba(241,191,112,.12); }
+.amount-button strong { color: #f0d6a6; font: 700 10px var(--body); white-space: nowrap; }
+.amount-button small { overflow: hidden; max-width: 100%; color: #969a99; font: 400 7px var(--display); white-space: nowrap; text-overflow: ellipsis; }
+.custom-amount-form { margin-top: 8px; }
+.custom-amount-form[hidden] { display: none; }
+.custom-amount-form label { display: block; margin-bottom: 5px; color: #b9beb9; font: 500 8px var(--display); }
+.custom-amount-controls { display: flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 5px 4px 9px; border: 1px solid rgba(255,255,255,.13); border-radius: 8px; background: rgba(0,0,0,.13); }
+.custom-amount-controls > span { color: #d9c18f; font: 700 11px var(--body); }
+.custom-amount-controls input { flex: 1; min-width: 40px; border: 0; outline: 0; color: var(--ink); background: transparent; font: 600 10px var(--body); }
+.custom-amount-controls input:focus-visible { outline: 0; }
+.custom-amount-controls input::placeholder { color: #777d7a; }
+.custom-amount-controls button { padding: 6px 9px; border: 0; border-radius: 6px; color: #1e2d24; background: var(--mint); font: 700 8px var(--display); cursor: pointer; }
+.donation-hint { min-height: 13px; margin: 8px 0 0; color: #858b89; font: 400 8px/1.6 var(--display); }
 .dialog-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 13px; }
 .download-button, .restart-button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 43px; border-radius: 9px; font: 700 10px var(--display); text-decoration: none; cursor: pointer; }
 .download-button { border: 1px solid rgba(167,225,188,.24); color: #c5efd1; background: rgba(167,225,188,.09); }
@@ -303,6 +368,30 @@ kbd { min-width: 16px; padding: 2px 4px; border: 1px solid rgba(255,255,255,.12)
 .restart-button span { font: 14px var(--body); }
 .download-button:hover, .restart-button:hover { filter: brightness(1.15); }
 .dialog-footnote { margin: 11px 0 0; color: #777981; font: 400 8px var(--display); text-align: center; }
+.payment-dialog {
+  width: min(calc(100% - 28px), 360px);
+  max-width: 360px;
+  max-height: min(92svh, 720px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 20px;
+  color: var(--ink);
+  background: #1b1e23;
+  box-shadow: 0 35px 110px rgba(0,0,0,.65);
+}
+.payment-dialog::backdrop { background: rgba(5,6,10,.79); backdrop-filter: blur(10px); }
+.payment-dialog-inner { position: relative; padding: 25px 22px 20px; text-align: center; }
+.payment-dialog h2 { margin: 0; color: #f0eee8; font: 800 20px/1.4 var(--display); }
+.payment-description { margin: 5px 0 14px; color: #a7aaa9; font: 400 10px/1.7 var(--display); }
+.payment-code-frame { width: min(100%, 260px); margin: 0 auto; padding: 9px; border-radius: 13px; background: #fff; }
+.payment-code-frame img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.payment-amount-label { margin: 12px 0 6px; color: #9da19f; font: 500 9px var(--display); }
+.payment-amount-label strong { color: #f2d49b; font: 800 15px var(--body); }
+.save-payment-code { display: inline-block; color: #a7e1bc; font: 600 9px var(--display); text-decoration: underline; text-underline-offset: 3px; }
+.payment-safety-note { margin: 11px 0 13px; color: #7f8584; font: 400 8px/1.7 var(--display); }
+.payment-return-button { width: 100%; min-height: 39px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; color: #dfded8; background: rgba(255,255,255,.05); font: 600 10px var(--display); cursor: pointer; }
+.payment-return-button:hover { background: rgba(255,255,255,.09); }
 
 @media (min-width: 700px) {
   .game-shell { padding-top: 42px; padding-bottom: 30px; }

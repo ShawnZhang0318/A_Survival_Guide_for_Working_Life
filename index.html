@@ -131,13 +131,73 @@
         <div class="summary-wrap">
           <canvas id="summary-canvas" width="960" height="640" aria-label="你的打工人生存成绩卡"></canvas>
         </div>
+        <section class="donation-panel" aria-labelledby="donation-title">
+          <div class="donation-heading">
+            <span class="donation-mark" aria-hidden="true">✳</span>
+            <div>
+              <h3 id="donation-title">请作者喝杯咖啡</h3>
+              <p>喜欢这个小项目？给作者一点鼓励吧</p>
+            </div>
+          </div>
+          <div class="payment-methods" role="group" aria-label="选择收款方式">
+            <button class="payment-method wechat-method" id="method-wechat" type="button" aria-pressed="false">
+              <span class="method-icon" aria-hidden="true">微</span>
+              <span>微信</span>
+              <span class="method-check" aria-hidden="true">✓</span>
+            </button>
+            <button class="payment-method alipay-method" id="method-alipay" type="button" aria-pressed="false">
+              <span class="method-icon" aria-hidden="true">支</span>
+              <span>支付宝</span>
+              <span class="method-check" aria-hidden="true">✓</span>
+            </button>
+          </div>
+          <div class="donation-amounts" role="group" aria-label="选择打赏金额">
+            <button class="amount-button" type="button" data-amount="0.01" aria-pressed="false">
+              <strong>¥0.01</strong><small>一份也是爱</small>
+            </button>
+            <button class="amount-button" type="button" data-amount="1.88" aria-pressed="false">
+              <strong>¥1.88</strong><small>一点花花～</small>
+            </button>
+            <button class="amount-button" type="button" data-amount="10" aria-pressed="false">
+              <strong>¥10</strong><small>加个鸡腿！</small>
+            </button>
+            <button class="amount-button custom-amount-button" id="amount-custom" type="button" aria-pressed="false" aria-expanded="false">
+              <strong>任意金额</strong><small>由你决定</small>
+            </button>
+          </div>
+          <form class="custom-amount-form" id="custom-amount-form" hidden>
+            <label for="custom-amount-input">输入打赏金额（元）</label>
+            <div class="custom-amount-controls">
+              <span aria-hidden="true">¥</span>
+              <input id="custom-amount-input" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="例如 6.66" required>
+              <button type="submit">确认金额</button>
+            </div>
+          </form>
+          <p class="donation-hint" id="donation-hint" aria-live="polite">先选微信或支付宝，再选金额展示收款码。</p>
+        </section>
         <div class="dialog-actions">
           <a class="download-button" id="download-summary" download="打工人生存成绩卡.png" href="#">
             <span aria-hidden="true">↓</span> 保存成绩卡
           </a>
           <button class="restart-button" id="restart-game" type="button">再来一局 <span aria-hidden="true">↗</span></button>
         </div>
-        <p class="dialog-footnote">成绩卡里的二维码为装饰图案 · 免费开源项目</p>
+        <p class="dialog-footnote">成绩卡二维码可扫码进入游戏 · 免费开源项目</p>
+      </div>
+    </dialog>
+
+    <dialog class="payment-dialog" id="payment-dialog" aria-labelledby="payment-title">
+      <div class="payment-dialog-inner">
+        <button class="dialog-close" id="close-payment-dialog" type="button" aria-label="关闭收款码">×</button>
+        <div class="ending-kicker"><span class="ending-spark">✳</span> THANK YOU · 感谢支持</div>
+        <h2 id="payment-title">微信收款码</h2>
+        <p class="payment-description" id="payment-description">请使用微信扫一扫，确认金额后完成付款。</p>
+        <div class="payment-code-frame">
+          <img id="payment-code-image" alt="作者收款码" src="">
+        </div>
+        <p class="payment-amount-label">本次选择 <strong id="payment-amount"></strong></p>
+        <a class="save-payment-code" id="save-payment-code" href="#" download>保存收款码到设备</a>
+        <p class="payment-safety-note">请在微信或支付宝官方页面核对金额并输入支付密码；本网页不会收集支付信息。</p>
+        <button class="payment-return-button" id="return-to-ending" type="button">返回战绩</button>
       </div>
     </dialog>
   </body>
