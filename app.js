@@ -1,4 +1,4 @@
-import { cardsData } from "./cards.js";
+import { cardsData } from "./cards.js?v=donation-qr-2";
 
 const METRICS = ["health", "money", "social", "hair"];
 const STARTING_VALUE = 50;
