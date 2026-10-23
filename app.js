@@ -1,4 +1,4 @@
-import { cardsData } from "./cards.js?v=auto-refresh-1";
+import { cardsData } from "./cards.js?v=donation-free-2";
 
 const METRICS = ["health", "money", "social", "hair"];
 const STARTING_VALUE = 50;
@@ -66,9 +66,6 @@ const ui = {
   donationHint: document.querySelector("#donation-hint"),
   methodButtons: [...document.querySelectorAll(".payment-method")],
   amountButtons: [...document.querySelectorAll(".amount-button")],
-  customAmountButton: document.querySelector("#amount-custom"),
-  customAmountForm: document.querySelector("#custom-amount-form"),
-  customAmountInput: document.querySelector("#custom-amount-input"),
   paymentDialog: document.querySelector("#payment-dialog"),
   paymentTitle: document.querySelector("#payment-title"),
   paymentDescription: document.querySelector("#payment-description"),
@@ -90,8 +87,7 @@ const state = {
   drag: null,
   ending: null,
   donationMethod: null,
-  donationAmount: null,
-  customAmount: null
+  donationAmount: null
 };
 
 const gameQrImage = new Image();
@@ -368,15 +364,11 @@ function updateDonationSelection() {
     button.setAttribute("aria-pressed", String(selected));
     button.disabled = !state.donationMethod;
   }
-  ui.customAmountButton.setAttribute("aria-expanded", String(state.donationAmount === "custom"));
 }
 
 function resetDonationSelection() {
   state.donationMethod = null;
   state.donationAmount = null;
-  state.customAmount = null;
-  ui.customAmountForm.hidden = true;
-  ui.customAmountInput.value = "";
   updateDonationSelection();
   setDonationHint("先选微信或支付宝，再选金额展示收款码。");
   if (ui.paymentDialog.open) ui.paymentDialog.close();
@@ -385,35 +377,32 @@ function resetDonationSelection() {
 function showDonationQr() {
   if (!state.donationMethod || !state.donationAmount) return;
   const isCustom = state.donationAmount === "custom";
-  const selectedAmount = isCustom ? state.customAmount : Number(state.donationAmount);
-  if (isCustom && !selectedAmount) {
-    setDonationHint("请输入任意金额，再确认并展示收款码。");
-    ui.customAmountInput.focus();
-    return;
-  }
+  const selectedAmount = isCustom ? null : Number(state.donationAmount);
 
   const [folder, filename] = DONATION_QR_PATHS[state.donationMethod][isCustom ? "custom" : state.donationAmount];
   const imageUrl = new URL(`./${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`, import.meta.url).href;
   const methodLabel = PAYMENT_LABELS[state.donationMethod];
-  const amountLabel = `¥${selectedAmount.toFixed(2)}`;
+  const amountLabel = isCustom ? "自由打赏" : `¥${selectedAmount.toFixed(2)}`;
 
   ui.paymentTitle.textContent = `${methodLabel}收款码`;
-  ui.paymentDescription.textContent = `请用${methodLabel}扫一扫，核对收款方和金额后完成付款。`;
+  ui.paymentDescription.textContent = isCustom
+    ? `请用${methodLabel}扫一扫自由打赏码，在${methodLabel}中填写打赏金额。`
+    : `请用${methodLabel}扫一扫，核对收款方和金额后完成付款。`;
   ui.paymentAmount.textContent = amountLabel;
   ui.paymentCodeImage.alt = `${methodLabel} ${amountLabel} 收款码`;
   ui.paymentCodeImage.src = imageUrl;
   ui.savePaymentCode.href = imageUrl;
   ui.savePaymentCode.download = `${methodLabel}-${isCustom ? "自由打赏" : selectedAmount.toFixed(2)}.jpg`;
   if (!ui.paymentDialog.open) ui.paymentDialog.showModal();
+  setDonationHint(isCustom
+    ? `已选${methodLabel}自由打赏，收款码已打开。`
+    : `已选 ${amountLabel}，${methodLabel}收款码已打开。`);
 }
 
 function selectDonationMethod(method) {
   state.donationMethod = method;
   updateDonationSelection();
-  if (state.donationAmount === "custom" && !state.customAmount) {
-    setDonationHint("请输入任意金额，再确认并展示收款码。");
-    ui.customAmountInput.focus();
-  } else if (state.donationAmount) {
+  if (state.donationAmount) {
     showDonationQr();
   } else {
     setDonationHint(`已选${PAYMENT_LABELS[method]}，再选一个打赏金额。`);
@@ -429,35 +418,14 @@ function selectDonationAmount(amount) {
   state.donationAmount = amount;
   updateDonationSelection();
   if (amount === "custom") {
-    state.customAmount = null;
-    ui.customAmountForm.hidden = false;
-    setDonationHint("输入你想打赏的金额，确认后展示自由打赏收款码。");
-    ui.customAmountInput.focus();
+    showDonationQr();
     return;
   }
 
-  state.customAmount = null;
-  ui.customAmountForm.hidden = true;
-  ui.customAmountInput.value = "";
   if (state.donationMethod) {
     showDonationQr();
   } else {
     setDonationHint(`已选 ¥${Number(amount).toFixed(2)}，再选微信或支付宝。`);
-  }
-}
-
-function confirmCustomAmount(event) {
-  event.preventDefault();
-  if (!ui.customAmountInput.reportValidity()) return;
-  const amount = Number(ui.customAmountInput.value);
-  if (!Number.isFinite(amount) || amount < 0.01) return;
-  state.donationAmount = "custom";
-  state.customAmount = Math.round(amount * 100) / 100;
-  updateDonationSelection();
-  if (state.donationMethod) {
-    showDonationQr();
-  } else {
-    setDonationHint(`已选 ¥${state.customAmount.toFixed(2)}，再选微信或支付宝。`);
   }
 }
 
@@ -590,7 +558,6 @@ ui.methodButtons.forEach((button) => {
 ui.amountButtons.forEach((button) => {
   button.addEventListener("click", () => selectDonationAmount(button.dataset.amount));
 });
-ui.customAmountForm.addEventListener("submit", confirmCustomAmount);
 ui.closePaymentDialog.addEventListener("click", () => ui.paymentDialog.close());
 ui.returnToEnding.addEventListener("click", () => ui.paymentDialog.close());
 ui.paymentDialog.addEventListener("click", (event) => {

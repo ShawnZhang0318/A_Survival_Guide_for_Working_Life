@@ -352,15 +352,6 @@ kbd { min-width: 16px; padding: 2px 4px; border: 1px solid rgba(255,255,255,.12)
 .amount-button.is-selected { border-color: rgba(241,191,112,.55); background: rgba(241,191,112,.12); }
 .amount-button strong { color: #f0d6a6; font: 700 10px var(--body); white-space: nowrap; }
 .amount-button small { overflow: hidden; max-width: 100%; color: #969a99; font: 400 7px var(--display); white-space: nowrap; text-overflow: ellipsis; }
-.custom-amount-form { margin-top: 8px; }
-.custom-amount-form[hidden] { display: none; }
-.custom-amount-form label { display: block; margin-bottom: 5px; color: #b9beb9; font: 500 8px var(--display); }
-.custom-amount-controls { display: flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 5px 4px 9px; border: 1px solid rgba(255,255,255,.13); border-radius: 8px; background: rgba(0,0,0,.13); }
-.custom-amount-controls > span { color: #d9c18f; font: 700 11px var(--body); }
-.custom-amount-controls input { flex: 1; min-width: 40px; border: 0; outline: 0; color: var(--ink); background: transparent; font: 600 10px var(--body); }
-.custom-amount-controls input:focus-visible { outline: 0; }
-.custom-amount-controls input::placeholder { color: #777d7a; }
-.custom-amount-controls button { padding: 6px 9px; border: 0; border-radius: 6px; color: #1e2d24; background: var(--mint); font: 700 8px var(--display); cursor: pointer; }
 .donation-hint { min-height: 13px; margin: 8px 0 0; color: #858b89; font: 400 8px/1.6 var(--display); }
 .dialog-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 13px; }
 .download-button, .restart-button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 43px; border-radius: 9px; font: 700 10px var(--display); text-decoration: none; cursor: pointer; }
