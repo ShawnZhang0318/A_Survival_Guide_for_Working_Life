@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#111319">
+    <meta name="description" content="每天做一个选择，看看你能在职场生存几天。">
+    <title>打工人生存指南 · Worker Survival Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="game-shell" aria-labelledby="game-title">
+      <header class="masthead">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <div>
+            <p class="eyebrow">THE DAILY GRIND · SURVIVAL GUIDE</p>
+            <h1 id="game-title">打工人生存指南</h1>
+          </div>
+        </div>
+        <div class="day-pill" aria-live="polite">
+          <span class="day-light"></span>
+          <span>生存第 <strong id="day-count">1</strong> 天</span>
+        </div>
+      </header>
+
+      <section class="metrics-panel" aria-label="当前状态">
+        <div class="metrics-heading">
+          <span>今日状态</span>
+          <span class="metrics-note">别让任何一项归零</span>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric" data-metric="health" aria-label="健康 50">
+            <div class="metric-topline">
+              <span class="metric-icon" aria-hidden="true">♥</span>
+              <span class="metric-name">健康</span>
+              <span class="metric-value" id="value-health">50</span>
+            </div>
+            <div class="meter"><span class="meter-fill" id="bar-health"></span></div>
+            <span class="metric-cue" aria-hidden="true"></span>
+            <span class="metric-pop" aria-hidden="true"></span>
+          </div>
+          <div class="metric" data-metric="money" aria-label="存款 50">
+            <div class="metric-topline">
+              <span class="metric-icon" aria-hidden="true">¥</span>
+              <span class="metric-name">存款</span>
+              <span class="metric-value" id="value-money">50</span>
+            </div>
+            <div class="meter"><span class="meter-fill" id="bar-money"></span></div>
+            <span class="metric-cue" aria-hidden="true"></span>
+            <span class="metric-pop" aria-hidden="true"></span>
+          </div>
+          <div class="metric" data-metric="social" aria-label="人际 50">
+            <div class="metric-topline">
+              <span class="metric-icon social-icon" aria-hidden="true">✳</span>
+              <span class="metric-name">人际</span>
+              <span class="metric-value" id="value-social">50</span>
+            </div>
+            <div class="meter"><span class="meter-fill" id="bar-social"></span></div>
+            <span class="metric-cue" aria-hidden="true"></span>
+            <span class="metric-pop" aria-hidden="true"></span>
+          </div>
+          <div class="metric" data-metric="hair" aria-label="发量 50">
+            <div class="metric-topline">
+              <span class="metric-icon hair-icon" aria-hidden="true">〰</span>
+              <span class="metric-name">发量</span>
+              <span class="metric-value" id="value-hair">50</span>
+            </div>
+            <div class="meter"><span class="meter-fill" id="bar-hair"></span></div>
+            <span class="metric-cue" aria-hidden="true"></span>
+            <span class="metric-pop" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="decision-area" aria-label="每日事件与选择">
+        <div class="section-kicker">
+          <span class="kicker-dot"></span>
+          <span>办公室 · 未读事件</span>
+          <span class="kicker-date">EVERY CHOICE COUNTS</span>
+        </div>
+
+        <article class="event-card" id="event-card" aria-live="polite" aria-atomic="true">
+          <div class="card-topline">
+            <span class="card-label"><span class="tiny-star">✳</span> 职场突发事件</span>
+            <span class="card-index" id="card-index">01 / 21</span>
+          </div>
+          <div class="card-content">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <p class="event-text" id="event-text"></p>
+          </div>
+          <div class="swipe-hint" id="swipe-hint">
+            <span>← 拒绝 / 躺平</span>
+            <span class="hint-line"><i></i></span>
+            <span>答应 / 硬扛 →</span>
+          </div>
+          <div class="drag-stamp stamp-left" aria-hidden="true">算了吧</div>
+          <div class="drag-stamp stamp-right" aria-hidden="true">冲就完了</div>
+        </article>
+
+        <div class="choice-row" aria-label="选择一个应对方式">
+          <button class="choice-button choice-left" id="choose-left" type="button">
+            <span class="choice-arrow" aria-hidden="true">←</span>
+            <span id="left-choice-text">选择 A</span>
+            <kbd>A</kbd>
+          </button>
+          <button class="choice-button choice-right" id="choose-right" type="button">
+            <span id="right-choice-text">选择 B</span>
+            <kbd>D</kbd>
+            <span class="choice-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>一张卡 = 一天 · 四项状态，谁先撑不住谁下班</span>
+        <span class="keyboard-note"><kbd>←</kbd><kbd>→</kbd> 也能做决定</span>
+      </footer>
+    </main>
+
+    <dialog class="ending-dialog" id="ending-dialog" aria-labelledby="ending-title">
+      <div class="dialog-inner">
+        <button class="dialog-close" id="close-dialog" type="button" aria-label="关闭结果窗口">×</button>
+        <div class="ending-kicker"><span class="ending-spark">✳</span> GAME OVER · 打工人下线</div>
+        <h2 id="ending-title"></h2>
+        <p class="ending-copy" id="ending-copy"></p>
+        <div class="summary-wrap">
+          <canvas id="summary-canvas" width="960" height="640" aria-label="你的打工人生存成绩卡"></canvas>
+        </div>
+        <div class="dialog-actions">
+          <a class="download-button" id="download-summary" download="打工人生存成绩卡.png" href="#">
+            <span aria-hidden="true">↓</span> 保存成绩卡
+          </a>
+          <button class="restart-button" id="restart-game" type="button">再来一局 <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="dialog-footnote">成绩卡里的二维码为装饰图案 · 免费开源项目</p>
+      </div>
+    </dialog>
+  </body>
+</html>
